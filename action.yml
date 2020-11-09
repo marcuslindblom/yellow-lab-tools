@@ -1,0 +1,19 @@
+# action.yml
+name: 'Detects performance or front-end code quality issues'
+description: 'Analyzes a webpage and detects performance or front-end code quality issues'
+inputs:
+  url:
+    description: 'URL to analyse'
+    required: true
+  score:
+    description: 'The desired performance and front-end score'
+    required: true
+outputs:
+  score:
+    description: 'The performanc and front-end global score'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.url }}
+    - ${{ inputs.score }}
