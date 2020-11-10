@@ -8,6 +8,9 @@ inputs:
   score:
     description: 'The desired performance and front-end score'
     required: true
+  host:
+    description: 'The API host url, defaults to https://yellowlab.tools/api/runs'
+    required: false
 outputs:
   score:
     description: 'The performanc and front-end global score'
@@ -17,3 +20,4 @@ runs:
   args:
     - ${{ inputs.url }}
     - ${{ inputs.score }}
+    - ${{ inputs.host }}

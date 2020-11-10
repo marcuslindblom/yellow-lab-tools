@@ -1,10 +1,12 @@
 #!/bin/sh
 
+HOST=${3:-'https://yellowlab.tools/api/runs'}
+
 GLOBALSCORE=`curl -s -L -H 'Content-Type: application/json' \
 --data '{ 
 "url": "'$1'",
 "waitForResponse": true
-}' https://yellowlab.tools/api/runs | jq -r '.scoreProfiles.generic.globalScore'`
+}' $HOST | jq -r '.scoreProfiles.generic.globalScore'`
 
 echo "::set-output name=score::$GLOBALSCORE"
 

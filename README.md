@@ -19,7 +19,8 @@ jobs:
       - uses: marcuslindblom/yellow-lab-tools@main
         with:
           url: ${{ secrets.SECURITY_HEADERS_URL }}
-          score: 90
+          score: 100
+	  host: https://yellowlab.tools/api/runs
 ```
 
 Example output:
