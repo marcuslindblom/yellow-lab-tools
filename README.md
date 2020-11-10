@@ -20,7 +20,7 @@ jobs:
         with:
           url: ${{ secrets.SECURITY_HEADERS_URL }}
           score: 100
-	  host: https://yellowlab.tools/api/runs
+          host: https://yellowlab.tools/api/runs
 ```
 
 Example output:
