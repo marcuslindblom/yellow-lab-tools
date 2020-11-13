@@ -1,16 +1,18 @@
-#!/bin/sh
+#!/bin/bash
 
-HOST=${3:-'https://yellowlab.tools/api/runs'}
+HOST=${3:-"https://yellowlab.tools/api/runs"}
+SCORE=${2:-100}
+URL=$1
 
-GLOBALSCORE=`curl -s -L -H 'Content-Type: application/json' \
+GLOBALSCORE=`curl -sS -L -H 'Content-Type: application/json' \
 --data '{ 
-"url": "'$1'",
+"url": "'$URL'",
 "waitForResponse": true
 }' $HOST | jq -r '.scoreProfiles.generic.globalScore'`
 
 echo "::set-output name=score::$GLOBALSCORE"
 
-if [ $GLOBALSCORE -ge $2 ]; then
+if [ $GLOBALSCORE -ge $SCORE ]; then
 	exit 0
 else
 	exit 1
