@@ -11,7 +11,7 @@ on:
 jobs:
   yellow-lab-tools-check:
     name: Detect performance and front-end issues
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -20,7 +20,6 @@ jobs:
         with:
           url: ${{ secrets.SECURITY_HEADERS_URL }}
           score: 100
-          host: https://yellowlab.tools/api/runs
 ```
 
 Example output:
