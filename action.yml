@@ -2,7 +2,7 @@
 name: 'Detects performance or front-end code quality issues'
 description: 'Analyzes a webpage and detects performance or front-end code quality issues'
 branding:
-  icon: 'check-circle'  
+  icon: 'check-circle'
   color: 'gray-dark'
 inputs:
   url:
@@ -10,9 +10,6 @@ inputs:
     required: true
   score:
     description: 'The desired performance and front-end score'
-    required: true
-  host:
-    description: 'The API host url, defaults to https://yellowlab.tools/api/runs'
     required: false
 outputs:
   score:
@@ -23,4 +20,3 @@ runs:
   args:
     - ${{ inputs.url }}
     - ${{ inputs.score }}
-    - ${{ inputs.host }}
