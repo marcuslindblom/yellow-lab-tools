@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SCORE=${2:-100}
 URL=$1
+SCORE=${2:-100}
 
 RUNID=$(curl -L -X POST -H 'Content-Type: application/json' \
 --data-raw '{
 	"url": "'$URL'",
 	"waitForResponse": false
-}' $HOST | jq -r '.runId')
+}' 'https://yellowlab.tools/api/runs' | jq -r '.runId')
 
 check() {
 	STATUS=$(curl -L -X GET 'https://yellowlab.tools/api/runs/'$RUNID'' | jq -r '.status.statusCode')
